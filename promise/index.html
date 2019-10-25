@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>promise案例</title>
+</head>
+<body>
+  <script src="mypromise.js" ></script>
+  <script>
+
+  //  let myPromise=new MyPromise((resolve,reject)=>{
+  //       resolve(true);
+  //  });
+  //  myPromise.then(result=>{
+  //         console.log('MyPromise.then');
+  //    console.log(result);
+  //  })
+
+  let myPromise1=new MyPromise((resolve,reject)=>{
+    reject('11')
+    // reject(new Error('error'));
+    // throw new Error('error');
+  });
+  myPromise1.then(result=>{
+  console.log(result);
+  }).catch(error=>{
+     console.log('MyPromise.catch');
+    console.error(error);
+  })
+
+// MyPromise.resolve(1).then((resolve)=>{
+//   console.log('MyPromise.resolve');
+//   console.log(result);
+// })
+
+  </script>
+  <!-- <script src="promise.js" ></script> -->
+</body>
+</html>
