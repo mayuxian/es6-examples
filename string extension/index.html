@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>string extension</title>
+</head>
+<body>
+  <script>
+  for (const codePoint of 'foo') {
+    console.log(codePoint);
+  }
+  let text=String.fromCodePoint(0x20BB7);
+  for (const i of text) {
+    console.log(i);
+  }
+
+  String.raw`Hi\\n`
+  // 返回 "Hi\\\\n"
+  console.log(String.raw`Hi\\n` === "Hi\\\\n" )// true
+
+  let s="hello world!";
+  console.log(`s.startsWith('Hello'):`, s.startsWith('Hello'));
+  console.log(`s.endsWith('!'):`, s.endsWith('!'));
+  console.log(`s.includes('o'):`, s.includes('o'));
+
+  console.log('第二个参数表示搜索位置');
+  console.log(`s.startsWith('world',6):`, s.startsWith('world',6));
+  console.log(`s.endsWith('hello',5):`, s.endsWith('hello',5));
+  console.log(`s.includes('hello',6):`, s.includes('hello',6));
+  
+
+  console.log(`'hello'.repeat(3)`,'hello'.repeat(3));
+  console.log(`'x'.padStart(5,'a')`,'x'.padStart(5,'a'));
+  console.log(`'x'.padEnd(5,'b')`,'x'.padEnd(5,'b'));
+ 
+  console.log(`' x '.strim():`,' x '.trim());
+  console.log(`' x '.strimStart():`,' x '.trimStart());
+  console.log(`' x '.strimEnd():`,' x '.trimEnd());
+
+  const string = 'test1test2test3aabb';
+  const regex = /t(e)(st(\d?))/g;
+  let matchAllResult= string.matchAll(regex);
+    console.log(matchAllResult);
+  console.log(`'test1test2test3'.matchAll(/t(e)(st(\d?))/g)`);
+  for (const r of matchAllResult) {
+  console.log(r);
+  }
+  
+  </script>
+</body>
+</html>

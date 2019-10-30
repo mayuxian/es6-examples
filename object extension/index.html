@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>object extension</title>
+</head>
+<body>
+  <script>
+  let target={a:1,b:2,c:3};
+  let source={b:21,c:31};
+  console.log(`target:`,target);
+  console.log(`source:`,source);
+  console.log('Object.assign(target,source)');
+  let result=Object.assign(target,source);
+  console.log(`target:`,target);
+  console.log(`result:`,result);
+  console.log(`target===result:`,target===result);
+
+  console.log(`Object.is('foo','foo'):`,Object.is('foo','foo'));
+  
+  </script>
+</body>
+</html>

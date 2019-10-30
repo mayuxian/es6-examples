@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>RegExp</title>
+</head>
+<body>
+<script>
+ let regexp=/\d+/g;
+ console.log('regexp.unicode',regexp.unicode);
+ regexp=new RegExp(regexp,'iug');
+ console.log('regexp.toString():',regexp);
+ console.log('regexp.unicode',regexp.unicode);
+ 
+/* 点（.）字符在正则表达式中，含义是除了换行符以外的任意单个字符。对于码点大于0xFFFF的 Unicode 字符，点字符不能识别，必须加上u修饰符。 */
+///^.*$/u.test(s) 匹配出了换行符的其他字符
+let execRegExp=/a/g;
+console.log(` let execRegExp=/a/g; 第一次： execRegExp.exec('dab123ac456'):`,execRegExp.exec('dab123ac456')); //检索字符串，返回匹配值的数组
+console.log(`第二次：execRegExp.exec('dab123ac456'):`,execRegExp.exec('dab123ac456')); //检索字符串，返回匹配值的数组
+
+console.log(`/\d+/g.test('ab123ac456'):`,/\d+/g.test('ab123ac456')); //返回true、false表示是否匹配成功
+console.log(`'ab123ac456'.match('a'):`,'ab123ac456'.match('a')); //返回匹配结果的数组
+console.log(`'ab123ac456'.match(/a(\S?)/g):`,'ab123ac456'.match(/a(\S?)/g)); //返回匹配结果的数组
+console.log(`regexp.replace(/\d/g,'0'):`,'ab123ac456'.replace(/\d/g,'0')); //提供匹配到的值
+console.log(`'ab123ac456'.search(/\d/ig):`,'ab123ac456'.search(/\d/ig)); //返回第一个匹配的起始位置
+console.log(`regexp.split(/\d/g):`,'ab123ac456'.split(/\d/g)); //返回以正则表达式拆分的数组
+let gRegExp=/a+/g;
+let yRegExp=/a+/y;
+console.log(`第一次：/a+/g.exec('aaa_aa_a'):`,gRegExp.exec('aaa_aa_a')); //返回以正则表达式拆分的数组
+console.log(`第二次：/a+/g.exec('aaa_aa_a'):`,gRegExp.exec('aaa_aa_a')); //返回以正则表达式拆分的数组
+console.log(`y修饰符，叫做'粘连'修饰符，后一次匹配从上一次匹配成功的下一个位置`);
+console.log(`第一次：/a+/y.exec('aaa_aa_a'):`,yRegExp.exec('aaa_aa_a')); //
+console.log(`第二次：/a+/y.exec('aaa_aa_a'):`,yRegExp.exec('aaa_aa_a')); //
+console.log('/a+/g的表达式正文',/a+/g.source);
+console.log('/a+/g的表达式修饰符',/a+/g.flags);
+
+const RE_DATE = /(\d{4})-(\d{2})-(\d{2})/;
+const matchObj = RE_DATE.exec('1999-12-31');
+console.log('具名组匹配1：',matchObj);
+
+const RE_DATE1 = /(?<year>\d{4})-(?<month>\d{2})-(?<day>\d{2})/;
+const matchObj2 = RE_DATE1.exec('1999-12-31');
+console.log('具名组匹配2：',matchObj2);
+
+</script>  
+</body>
+</html>

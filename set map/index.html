@@ -4,11 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>destructuring</title>
+  <title>set map</title>
 </head>
 <body>
-  <script src="index.js">
- 
+  <script>
+  let arr=[1,2,3,2,4];
+  let arr1=[...Set(arr)];
+  console.log(`[...Set([1,2,3,2,4])]:`,[...Set([1,2,3,2,4])]);
+  let set=new Set();
+  set.add({});
+  set.add(1);
+  set.has(1);
+  set.delete({});
+    
   </script>
 </body>
 </html>
