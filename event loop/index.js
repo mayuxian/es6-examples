@@ -10,6 +10,7 @@ setTimeout(() => {
 });
 
 new Promise((resolve, reject) => {
+  resolve(5);  //这个在最上面还是最下面都一样，因为console.log(4)是同步
   console.log(4)
   resolve(5)
 }).then((data) => {

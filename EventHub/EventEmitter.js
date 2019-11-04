@@ -6,7 +6,7 @@ class EventEmitter {
   addListener(type, listener, context) {
     if (this._events.has(type)) {
       let listeners = this._events.get(type);
-      listeners, set(listener, context);
+      listeners.set(listener, context);
     } else {
       let map = new Map();
       map.set(listener, context);
