@@ -29,12 +29,12 @@ console.log('arr2:', arr2());
 //通过函数式编程方式
 //方式三：
 //es6方式
-let sum = (x) => (y => {
+let sum = (x) => (y)=> {
   if (y) {
     return sum(x + y);
   }
   return x;
-});
+};
 let sum1 = sum(1);
 let sum2 = sum1(2);
 console.log(`sum2:${sum2},\r\n result:${sum2()}`);
