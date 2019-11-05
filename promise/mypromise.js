@@ -31,7 +31,7 @@ class MyPromise {
   then(onFuifilled, onRejected) {
     onFuifilled = (typeof onFuifilled === "function") ? onFuifilled : value => { return value; };
     onRejected = (typeof onRejected === "function") ? onRejected : reason => { throw reason; };
-
+    let promise = null;
     let fulFilledCallback = (resolve, reject) => {
       setTimeout(() => {
         try {
@@ -52,7 +52,7 @@ class MyPromise {
         }
       }, 0);
     }
-    let promise = new MyPromise((resolve, reject) => {
+    promise = new MyPromise((resolve, reject) => {
       if (this._status === this._statusType.Pendding) {
         this._onFulfilledCallbacks.push(() => { fulFilledCallback(resolve, reject) });
         this._onRejectedCallbacks.push(() => { rejectedCallback(resolve, reject) });
