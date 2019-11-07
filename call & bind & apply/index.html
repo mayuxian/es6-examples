@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>call & bind & apply</title>
+</head>
+<body>
+  <script src="./index.js"></script>
+  <script>
+    var testObj={
+     name :'testObj.name',
+    //  test: function(p1, p2){
+    //     console.log(`testObj.test: p1:${p1},p2:${p2},this.name:${this.name}`);
+    //  }
+    };
+
+    let test=  function (p1, p2) {
+        let name='test.name';  
+        // console.log(`test: p1: ${p1},p2: ${p2},name:${name}`);
+        console.log(`test: p1: ${p1},p2: ${p2},this.name:${this.name}`);
+    }
+
+    test._call(testObj,1,2);
+    test._apply(testObj,[3,4]);
+
+    let testBind= test._bind(testObj,'bind:5');  //bind可以指定参数。
+    testBind('inArgs:6');
+    // let newTest=new test(7,8);
+    // console.log('newTest:',newTest);
+    // newTest.classMethod();
+  </script>
+</body>
+</html>
