@@ -10,16 +10,22 @@
   <script>
 
    function* testGenerator() {
-     yield "test1";
-     yield "test2";
-     yield "end";
+     console.log('test1-pre');
+   let v1= yield "test1";
+    console.log('v1:'+v1);
+    console.log('test2-pre');
+   let v2= yield "test2";
+      console.log('v2:'+v2);
+    console.log('end-pre');
+   let v3= yield "end";
+      console.log('v3:'+v3);
    }
 
   var tg = testGenerator();
-  console.log('step 1:',tg.next());
-  console.log('step 2:',tg.next());
-  console.log('step 3:',tg.next());
-  console.log('step 4:',tg.next());
+  console.log('step 1:',tg.next('v1'));
+  console.log('step 2:',tg.next('v2'));
+  console.log('step 3:',tg.next('v3'));
+  console.log('step 4:',tg.next(undefined));
   
   </script>
 </body>

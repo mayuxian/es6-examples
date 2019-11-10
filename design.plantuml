@@ -1,4 +1,4 @@
-=
+
 @startuml
 A -> B: Authentication Request
 B --> A: Authentication Response
