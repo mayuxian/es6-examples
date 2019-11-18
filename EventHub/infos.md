@@ -1,3 +1,10 @@
+
+## 订阅发布+观察者模式。 
+
+- on & off & emit
+- addEventListener & removeEventListener & invoke
+- subscribe & unSubscribe & publish
+
 //主要参考 ActiveMQ、RabbitMQ(相对稳定)、RocketMQ（阿里）
 //https://blog.csdn.net/wqc19920906/article/details/82193316
 //主要内容：

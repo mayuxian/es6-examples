@@ -1,3 +1,4 @@
+//TODO:缺少运行测试
 function decorator(target) {
   target.prototype.isTest = true;
 }

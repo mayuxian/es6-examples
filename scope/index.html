@@ -32,11 +32,22 @@
   //暂时性死区：
   var temp=123;
   if(true){
-    temp='abc';
+    // temp='abc';
     let temp=0;  //若有temp='abc'则，会ReferenceError
     console.log(temp);
   }
 
+  function test1() {
+    this.a=1;
+    this.func=function(){
+      var a=3;
+      console.log(this.a);
+      console.log(a);
+    };
+    this.func();
+  }
+  
+  test1();
   //es6生命变量的6中方式：var  function  let  const  import class
   
   </script>
