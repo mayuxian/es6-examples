@@ -10,3 +10,4 @@ let promise = new Promise((resolve, reject) => {
 // Promise.resolve(true).then(result => {
 //   console.log(result);
 // })
+

@@ -11,14 +11,16 @@ class MyPromise {
       if (this._status == this._statusType.Pendding) {
         this._status = this._statusType.Fulfilled;
         this._value = value;
+
+        this._onFulfilledCallbacks.forEach(cb => { cb(); });
       }
-      this._onFulfilledCallbacks.forEach(cb => { cb(); });
     };
 
     let reject = (reason) => {
       if (this._status == this._statusType.Pendding) {
         this._status = this._statusType.Rejected;
         this._reason = reason;
+        
         this._onRejectedCallbacks.forEach(cb => { cb(); })
       }
     };

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>JS连续相等表达式</title>
+</head>
+<body>
+ <div>
+  <a href="https://www.cnblogs.com/xxcanghai/p/4998076.html">参考地址</a>
+ </div>
+  <script>
+  var a={n:1};
+  var ref=a;
+  a.x=a={n:0};
+  //TODO:解析连续等于的问题
+  console.log('a:',a);
+  console.log('a.x:',a.x);
+  console.log('ref:',ref);
+  </script>
+</body>
+</html>
