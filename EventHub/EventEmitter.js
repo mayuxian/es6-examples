@@ -2,8 +2,7 @@ class EventEmitter {
   constructor() {
     this._events = new WeakMap();
   }
-
-  addListener(type, listener, context) {
+  on(type, listener, context) {
     if (this._events.has(type)) {
       let listeners = this._events.get(type);
       listeners.set(listener, context);
@@ -13,8 +12,7 @@ class EventEmitter {
       this._events.set(type, map);
     }
   }
-
-  removeListener(type, listener) {
+  off(type, listener) {
     if (this._events.has(type)) {
       let listeners = this._events.get(type);
       listeners.delete(listener);
@@ -45,15 +43,12 @@ class EventEmitter {
       // });
     }
   }
-
-  on(type, listener, context) {
-    return this.addListener(type, listener, context);
+  addListener(type, listener, context) {
+    return this.on(type, listener, context);
   }
-
-  off(type, listener) {
-    return this.removeListener(type, listener);
+  removeListener(type, listener) {
+    return this.off(type, listener);
   }
-
 }
 
 export {
