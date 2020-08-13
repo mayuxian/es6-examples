@@ -1,0 +1,73 @@
+{
+  "explorer.confirmDelete": false,
+  "[vue]": {
+      "editor.defaultFormatter": "octref.vetur"
+  },
+  "files.associations": {
+      "*.vue": "vue"
+  },
+  "[css]": {
+      "editor.defaultFormatter": "HookyQR.beautify"
+  },
+  "[javascript]": {
+      "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "prettier.singleQuote": true,
+  "prettier.jsxSingleQuote": true,
+  "[json]": {
+      "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "editor.defaultFormatter": "octref.vetur",
+  "window.zoomLevel": 0,
+  "todo-tree.tree.showScanModeButton": false,
+  "liveServer.settings.CustomBrowser": "chrome",
+  "liveServer.settings.https": {
+      "enable": true,
+      "cert": "D:/Software Tools/https cert/certificate.pem",
+      "key": "D:/Software Tools/https cert/privatekey.pem",
+      "passphrase": ""
+  },
+  "[html]": {
+      "editor.defaultFormatter": "vscode.html-language-features"
+  },
+  "editor.tabSize": 2,
+  "vetur.completion.scaffoldSnippetSources": {
+
+  },
+  "vetur.format.defaultFormatter.html": "prettier",
+  "vetur.format.defaultFormatterOptions": {
+      "prettier": {
+          "tabWidth":2,
+          "singleQuote": true,
+          "semi": false,
+          // "disableLanguages": ["vue"], // 不格式化vue文件，vue文件的格式化单独设置
+          "eslintIntegration": true,
+          // JSX标签闭合位置 默认false
+              // false: <div
+              //          className=""
+              //          style={{}}
+              //       >
+              // true: <div
+              //          className=""
+              //          style={{}} >
+          "jsxBracketSameLine": true,
+           // 对象中打印空格 默认true
+          // true: { foo: bar }
+          // false: {foo: bar}
+          "bracketSpacing": true,
+          // 行尾逗号,默认none,可选 none|es5|all
+          // es5 包括es5中的数组、对象
+          // all 包括函数对象等所有可选
+          "TrailingCooma": "none",
+          // 使用tab缩进，默认false
+          "useTabs": false,
+          // 箭头函数参数括号 默认avoid 可选 avoid| always
+          // avoid 能省略括号的时候就省略 例如x => x
+          // always 总是有括号
+          "arrowParens": "avoid",
+           //保存时自动格式化
+          // "editor.formatOnSave": true,
+        }
+  },
+  "javascript.format.insertSpaceAfterConstructor": true,
+}
