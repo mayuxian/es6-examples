@@ -39,10 +39,12 @@ function Promise(executor) {
 }
 
 function resolvePromise(promise2, x, resolve, reject) {
-  if (promise2 === x) {
+  if (promise2 && promise2 === x) {
     return reject(new TypeError('循环引用'));
   }
-
+  if (!x) {
+   return resolve()
+  }
   let called = false;
 
   if (x != null && (typeof x == 'object' || typeof x == 'function')) {
@@ -204,6 +206,8 @@ Promise.defer = Promise.deferred = function () {
   });
   return dfd;
 }
-
-
-module.exports = Promise;
+window.MyPromise = Promise
+// export {
+//   Promise
+// }
+// module.exports = Promise;

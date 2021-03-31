@@ -1,5 +1,5 @@
 class MyPromise {
-  constructor(executor) {
+  constructor (executor) {
     this._statusType = { Pendding: 0, Fulfilled/*Resolved*/: 1, Rejected: 2 };
     this._status = this._statusType.Pendding;
     this._value = undefined;
@@ -20,13 +20,14 @@ class MyPromise {
       if (this._status == this._statusType.Pendding) {
         this._status = this._statusType.Rejected;
         this._reason = reason;
-        
+
         this._onRejectedCallbacks.forEach(cb => { cb(); })
       }
     };
     try {
       executor(resolve, reject);
     } catch (error) {
+      console.error(error)
       reject(error);
     }
   };
@@ -71,7 +72,7 @@ class MyPromise {
   };
 
   resolvePromise(headPromise, x, resolve, reject) {
-    if (headPromise === x) {
+    if (headPromise && headPromise === x) {
       return reject(new TypeError('Promise循环调用'));
     }
     if (x == null || (typeof x !== 'object' && typeof x !== 'function')) { //若为null或者不是对象和函数，则x为普通值，返回结果。
@@ -102,10 +103,18 @@ class MyPromise {
   };
 
   static resolve(value) {
+    let _resolve=null
+    let _reject=null
     let promise = new MyPromise((resolve, reject) => {
-      this.resolvePromise(promise, value, resolve, reject);
+      _resolve=resolve;
+      _reject=reject
     })
+    promise.resolvePromise(promise, value, _resolve, _reject);
+    // promise = new MyPromise((resolve, reject) => {
+    //   this.resolvePromise(promise, value, resolve, reject);
+    // })
     return promise;
   };
 
 }
+
