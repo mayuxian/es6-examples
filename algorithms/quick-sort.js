@@ -35,4 +35,7 @@ export function quickSort(arr, left, right) {
   }
   arr[left] = arr[i]
   arr[i] = val;
+
+  quickSort(arr, left, i - 1)
+  quickSort(arr, i + 1, right)
 }
