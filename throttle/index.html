@@ -1,31 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>throttle</title>
 </head>
+
 <body>
   <div>
     <button onclick="throttle(click1)();">节流函数</button>
   </div>
   <script>
-    var count=0;
+    var count = 0;
     function click1() {
-      console.log('点击次数：',++count);
+      console.log('点击次数：', ++count);
     }
-    const throttle=(fn,delay=1000)=>{
-      let flag=false;
-      return (...args)=>{
-        if(this.flag)return;
-          this.flag=true;
-          setTimeout(() => {
-            fn.apply(this,args);
-            this.flag=false;
-          }, delay);
+    const throttle = (fn, delay = 1000) => {
+      // let flag = false;
+      return (...args) => {
+        console.log('this.flag:', this.flag);
+        if (this.flag === undefined) {
+          console.log('this.flag:', this.flag);
+          //表示第一次立即执行
+          this.flag = true;
+          fn.apply(this, args);
+          this.flag = false;
+          return;
+        }
+        if (this.flag) return;
+        this.flag = true;
+        setTimeout(() => {
+          fn.apply(this, args);
+          this.flag = false;
+        }, delay);
       }
     }
   </script>
 </body>
+
 </html>

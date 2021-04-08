@@ -3,15 +3,12 @@ function click1() {
   console.log('点击次数：', ++count);
 }
 const debounce = (fn, delay = 1000) => {
-  let timer = null;
   return (...args) => {
-    console.log(`clear timer:`, this.timer);  //必须要写this.
-    console.log(`_that===this :`, _that === this);
     clearTimeout(this.timer);
     this.timer = setTimeout(() => {
+      console.log('debounce run');
       fn.apply(this, args);
     }, delay);
-    console.log(`timer value:`, this.timer);
   };
 };
 
