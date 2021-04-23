@@ -23,9 +23,23 @@ function add(x, y) {
   return _adder;
 }
 
-console.log('add(1)',add(1))
-console.log('add(1)(2)',add(1)(2))
-console.log('add(1,2)',add(1,2))
-console.log('add(1)(2,3)',add(1)(2,3))
-console.log('add(1,2)(3)',add(1,2)(3))
-console.log('add(1,2)(3)(4)',add(1,2)(3)(4))
+console.log('add(1)', add(1))
+console.log('add(1)(2)', add(1)(2))
+console.log('add(1,2)', add(1, 2))
+console.log('add(1)(2,3)', add(1)(2, 3))
+console.log('add(1,2)(3)', add(1, 2)(3))
+console.log('add(1,2)(3)(4)', add(1, 2)(3)(4))
+
+
+
+//ramda库的方式,此种是必须达到约定的参数才会执行
+function curry(fn) {
+  return function curriedFn(...args) {
+    if (args.length < fn.length) {
+      return function () {
+        return curriedFn(...args.concat(Array.from(arguments)))
+      }
+    }
+    return fn(...args)
+  }
+}
