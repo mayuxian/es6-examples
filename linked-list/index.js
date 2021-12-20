@@ -4,6 +4,7 @@
 //JavaScript ES6语法数据结构（一）—— 链表
 //https://blog.csdn.net/qq_37954086/article/details/102646656
 
+//或者，引用npm包 LinkedList
 class Node {
   constructor (element, next) {
     this.element = element;
