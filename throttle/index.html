@@ -20,6 +20,7 @@
     const throttle = (fn, delay = 1000) => {
       // let flag = false;
       return (...args) => {
+        clearTimeout(this.timer)
         console.log('this.flag:', this.flag);
         if (this.flag === undefined) {
           console.log('this.flag:', this.flag);
@@ -31,7 +32,7 @@
         }
         if (this.flag) return;
         this.flag = true;
-        setTimeout(() => {
+        this.timer=setTimeout(() => {
           fn.apply(this, args);
           this.flag = false;
         }, delay);
