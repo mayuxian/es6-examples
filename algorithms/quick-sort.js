@@ -24,7 +24,7 @@ export function quickSort(arr, left, right) {
     // x=x+y
     // y=x-y
     // x=x-y
-    // arr[i] = arr[i] + arr[y]
+    // arr[i] = arr[i] + arr[j]
     // arr[j] = arr[i] - arr[j]
     // arr[i] = arr[i] - arr[j]
 
