@@ -7,6 +7,12 @@
     {
       "type": "node",
       "request": "launch",
+      "name": "默认当前",
+      "program": "${file}"
+    },
+    {
+      "type": "node",
+      "request": "launch",
       "name": "Launch test",
       "program": "${workspaceFolder}/promise/promise.js"
     },
