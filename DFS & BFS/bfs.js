@@ -1,23 +1,20 @@
 
 function bfs(root) {
   if (!root) return []
-  const res = []
-  const queue = [root]
-  const temp = null;
-  const levelres = []
-  const tempqueue = []
-  while (queue.length > 0) {
-    temp = queue.shift();
-    levelres.push(temp.val);
-    if (temp.left) {
-      tempqueue.push(temp.left)
+  let res = [],queue = [root];
+  let node = null,levelres = [],childQueue = []
+  while (queue.length) {
+    node = queue.shift();
+    levelres.push(node.val);
+    if (node.left) {
+      childQueue.push(node.left)
     }
-    if (temp.right) {
-      tempqueue.push(temp.right)
+    if (node.right) {
+      childQueue.push(node.right)
     }
-    if (queue.length) {
-      queue = tempqueue.slice(0);
-      tempqueue = [];
+    if (!queue.length) {
+      queue = childQueue;
+      childQueue = [];
       res.push(levelres);
       levelres = []
     }
