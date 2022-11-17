@@ -1,7 +1,39 @@
 // 5  6  2  3  8
 //第一次比较交换后: 5 3 2 6 8
 //所以还需要把基点值和小于基点值进行交换 : 3 5 2 6 8
-export function quickSort(arr, left, right) {
+
+function quickSort(arr, left, right) {
+  if (left >= right) return;
+  const swap = (arr, i, j) => {
+      arr[i] = arr[i] + arr[j];
+      arr[j] = arr[i] - arr[j];
+      arr[i] = arr[i] - arr[j];
+  }
+  let i = left, j = right;
+  let val = arr[left]
+  while (i < j) {
+      while (i < j && arr[j] > val) {
+          --j;
+      }
+      while (i < j && arr[i] <= val) {
+          ++i;
+      }
+      if (i < j) {
+          swap(arr, i, j)
+          // let temp = arr[i];
+          // arr[i] = arr[j];
+          // arr[j] = temp;
+      }
+  }
+  swap(arr,left,i);
+  // arr[left] = arr[i];
+  // arr[i] = val;
+  quickSort(arr, left, i - 1);
+  quickSort(arr, i + 1, right);
+}
+
+
+function quickSort_legacy(arr, left, right) {
   //递归出口
   if (left > right) return;
   let i = left;
