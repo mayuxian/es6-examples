@@ -2,7 +2,7 @@
 console.log('----------test1 begin------------');
 //TODO:变量提升var t; 难道不应该输出undefined吗？
 console.log('test1:', test1);
-console.log('test1():', test1());
+console.log('test1():', test1());  //或先执行test函数再去log('test1()')
 console.log('t=', t);
 
 function test1() {

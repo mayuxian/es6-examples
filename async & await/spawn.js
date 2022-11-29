@@ -1,4 +1,7 @@
-
+//https://www.cnblogs.com/jerryfish/p/15436841.html
+// 谈谈对 async/await 的理解，async/await 的实现原理是什么?
+// 1）async/await 就是 Generator 的语法糖，使得异步操作变得更加方便
+// 2）async 函数就是将 Generator 函数的星号（*）替换成 async，将 yield 替换成await
 function spwan(genF) {
   return new Promise((resolve, reject) => {
     const gen = genF();
